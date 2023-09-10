@@ -3,7 +3,7 @@ import os, boto3, json
 
 app = Chalice(app_name='message')
 
-@app.route('/public')
+@app.route('/public', cors=True)
 def public():
     data = dict(app.current_request.query_params)
     sns = boto3.client('sns')
